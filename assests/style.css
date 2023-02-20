@@ -479,9 +479,8 @@
     text-align: center;
     color: #1E2D5C;
   }
-  .hero_image .blue_button1 {
-    display: inline-block;
-    margin-top: 15px;
+  .buttonGet .blue_button1{
+    color: green;
   }
   #header_top{
     font-size: 12px;
@@ -742,8 +741,10 @@
   #footer_bottom, #footer_bottom p, #footer_bottom a{
     font-size: 14px;
     color:#fff;
-    line-height: 1rem;
+    line-height: 4rem;
+
   }
+  
   #footer_row h4{
     font-weight: bold;
     color:#1E2D5C;
