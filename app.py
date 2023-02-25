@@ -1,5 +1,6 @@
 import flask, os
 from flask import *
+from db import db
 
 app = Flask(__name__,
         static_folder = os.path.abspath('assets'),
@@ -19,9 +20,12 @@ def index():
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == 'POST':
-         print(request.form)
-         print("email:", request.form.get("Email"))
-         print("pass", request.form.get("Password"))
+        print(request.form)
+        data = request.form.to_dict()
+        email = data.get('Email')
+        password = data.get('Password')
+        print(f"{email}:{password}")
+        
         
     return render_template('login.html')
 
@@ -37,7 +41,7 @@ def broker():
 def creditform():
     if request.method == 'POST':
         print(request.form)
-        
+
     return render_template('creditform.html')
 
 
