@@ -1,11 +1,21 @@
-import flask
+import flask, os
 from flask import *
 
-app = flask.Flask(__name__)
+app = Flask(__name__,
+        static_folder = os.path.abspath('assets'),
+        template_folder = os.path.abspath('templates')
+)
+
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+#app.config["UPLOAD_FOLDER"] = "uploads/"
+app.config["DEBUG"] = True
+
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/orders/1')
 def order_credit_repair():

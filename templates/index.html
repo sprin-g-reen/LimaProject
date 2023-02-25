@@ -26,6 +26,7 @@
     <script type="text/javascript">
         document.documentElement.className = 'js';
     </script>
+    <link rel="stylesheet" href="https://www.limaone.com/wp-content/plugins/wpforms/assets/css/wpforms-full.min.css?ver=1.7.9.1">
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <script id="diviarea-loader">window.DiviPopupData = window.DiviAreaConfig = { "zIndex": 1000000, "animateSpeed": 400, "triggerClassPrefix": "show-popup-", "idAttrib": "data-popup", "modalIndicatorClass": "is-modal", "blockingIndicatorClass": "is-blocking", "defaultShowCloseButton": true, "withCloseClass": "with-close", "noCloseClass": "no-close", "triggerCloseClass": "close", "singletonClass": "single", "darkModeClass": "dark", "noShadowClass": "no-shadow", "altCloseClass": "close-alt", "popupSelector": ".et_pb_section.popup", "initializeOnEvent": "et_pb_after_init_modules", "popupWrapperClass": "area-outer-wrap", "fullHeightClass": "full-height", "openPopupClass": "da-overlay-visible", "overlayClass": "da-overlay", "exitIndicatorClass": "on-exit", "hoverTriggerClass": "on-hover", "clickTriggerClass": "on-click", "onExitDelay": 2000, "notMobileClass": "not-mobile", "notTabletClass": "not-tablet", "notDesktopClass": "not-desktop", "baseContext": "body", "activePopupClass": "is-open", "closeButtonClass": "da-close", "withLoaderClass": "with-loader", "debug": false, "ajaxUrl": "https:\/\/www.limaone.com\/wp-admin\/admin-ajax.php", "sys": [] }; var divimode_loader = function () { "use strict"; !function (t) { t.DiviArea = t.DiviPopup = { loaded: !1 }; var n = t.DiviArea, i = n.Hooks = {}, o = {}; function r(t, n, i) { var r, e, c; if ("string" == typeof t) if (o[t]) { if (n) if ((r = o[t]) && i) for (c = r.length; c--;)(e = r[c]).callback === n && e.context === i && (r[c] = !1); else for (c = r.length; c--;)r[c].callback === n && (r[c] = !1) } else o[t] = [] } function e(t, n, i, r) { if ("string" == typeof t) { var e = { callback: n, priority: i, context: r }, c = o[t]; c ? (c.push(e), c = function (t) { var n, i, o, r, e = t.length; for (r = 1; r < e; r++)for (n = t[r], i = r; i > 0; i--)(o = t[i - 1]).priority > n.priority && (t[i] = o, t[i - 1] = n); return t }(c)) : c = [e], o[t] = c } } function c(t, n, i) { "string" == typeof n && (n = [n]); var r, e, c = []; for (r = 0; r < n.length; r++)Array.prototype.push.apply(c, o[n[r]]); for (e = 0; e < c.length; e++) { var a = void 0; c[e] && "function" == typeof c[e].callback && ("filter" === t ? void 0 !== (a = c[e].callback.apply(c[e].context, i)) && (i[0] = a) : c[e].callback.apply(c[e].context, i)) } if ("filter" === t) return i[0] } i.silent = function () { return i }, n.removeFilter = i.removeFilter = function (t, n) { r(t, n) }, n.removeAction = i.removeAction = function (t, n) { r(t, n) }, n.applyFilters = i.applyFilters = function (t) { for (var n = [], i = arguments.length - 1; i-- > 0;)n[i] = arguments[i + 1]; return c("filter", t, n) }, n.doAction = i.doAction = function (t) { for (var n = [], i = arguments.length - 1; i-- > 0;)n[i] = arguments[i + 1]; c("action", t, n) }, n.addFilter = i.addFilter = function (n, i, o, r) { e(n, i, parseInt(o || 10, 10), r || t) }, n.addAction = i.addAction = function (n, i, o, r) { e(n, i, parseInt(o || 10, 10), r || t) }, n.addActionOnce = i.addActionOnce = function (n, i, o, c) { e(n, i, parseInt(o || 10, 10), c || t), e(n, (function () { r(n, i) }), 1 + parseInt(o || 10, 10), c || t) } }(window); return {} }();
     </script>
@@ -4764,21 +4765,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
             });
         })(jQuery);
     </script>
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-T27KMCF');</script>
-    <!-- End Google Tag Manager -->
-    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="114x114" />
-    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
-    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
-    <link href="/site.webmanifest" rel="manifest" />
-    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+   <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
     <meta content="#da532c" name="msapplication-TileColor" />
     <meta content="#ffffff" name="theme-color" />
     <!-- ttd -->
@@ -6502,9 +6489,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                                                     <div class="et_pb_code_inner">
                                                         <div class="fluid-width-video-wrapper" id="mainvideo"
                                                             style="padding-top: 6%; "> <video width="540" height="540"
-                                                                poster="./assests/poster.png" controls
+                                                                poster="./assets/poster.png" controls
                                                                 style="border: 5px inset black;">
-                                                                <source src="./assests/amecocapit.mp4" type="video/mp4">
+                                                                <source src="./assets/amecocapit.mp4" type="video/mp4">
                                                             </video> </div>
                                                     </div>
                                                 </div>
@@ -7543,7 +7530,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     <noscript><img height="1" src="https://www.facebook.com/tr?id=724998961041927&amp;ev=PageView&amp;noscript=1"
             style="display:none" width="1" /></noscript>
 
-    <script src="./assests/javascript/main.js"></script>
+    <script src="./assets/javascript/main.js"></script>
 
 
     <script id=""
