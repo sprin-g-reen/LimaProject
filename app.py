@@ -33,8 +33,11 @@ def refer():
 def broker():
     return render_template('brokerP.html')
 
-@app.route('/creditform')
+@app.route('/creditform', methods=["GET","POST"])
 def creditform():
+    if request.method == 'POST':
+        print(request.form)
+        
     return render_template('creditform.html')
 
 
