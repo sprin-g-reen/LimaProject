@@ -18,6 +18,12 @@ app.config["DEBUG"] = True
 def index():
     return render_template('index.html')
 
+@app.route("/logout", methods=["GET"])
+def logout():
+    session['email'] = None 
+    return redirect(url_for("index"))
+
+
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == 'POST':

@@ -6507,7 +6507,7 @@
                                                         height="14"
                                                         src="https://www.limaone.com/wp-content/uploads/2021/04/Icon-awesome-envelope.png"
                                                         width="19" /></noscript> <a
-                                                    href="mailto:hello@limaone.com">admin@amecocapital.com</a></p>
+                                                    href="mailto:admin@amecocapital.com">admin@amecocapital.com</a></p>
                                             <div class="social_icons"><a
                                                     href="https://www.linkedin.com/company/lima-one-capital-llc/"
                                                     rel="noopener" target="_blank"><img alt="Linkedin icon"
@@ -6664,200 +6664,6 @@
             <div class="et-l dm-base-context"></div>
         </div>
     </div>
-    <script type="text/javascript">
-        function fetch_posts() {
-            let categories = [];
-            jQuery('#posts-filter-options__categories > li').each(function (index) {
-                if (jQuery(this).hasClass('selected')) {
-                    categories.push(jQuery(this).attr('data-value'))
-                }
-            });
-
-            let sort = jQuery('#posts-sort-options__categories').val();
-
-            console.log(categories);
-            console.log(sort);
-
-            jQuery.ajax({
-                url: 'https://www.limaone.com/wp-admin/admin-ajax.php',
-                type: 'post',
-                data: {
-                    action: 'data_fetch_posts',
-                    category: JSON.stringify(categories),
-                    sort: sort,
-                },
-                success: function (data) {
-                    jQuery('#posts-datafetched').html(data);
-                    jQuery('.posts-card').hover(function () {
-                        jQuery(this).css('opacity', 1);
-                        jQuery(this).siblings().css('opacity', 0.7);
-                        jQuery(this).addClass('hovered');
-                    },
-                        function () {
-                            jQuery('.posts-card').css('opacity', 1).removeClass('hovered');
-                        }
-                    )
-                }
-            });
-
-        }
-    </script>
-    <script type="text/javascript">
-        function load_more_posts() {
-            let categories = [];
-            jQuery('#posts-filter-options__categories > li').each(function (index) {
-                if (jQuery(this).hasClass('selected')) {
-                    categories.push(jQuery(this).attr('data-value'))
-                }
-            });
-            let currentPage = jQuery('button#blog-loadmore').attr('data-page-current');
-            let lastPage = jQuery('button#blog-loadmore').attr('data-page-last');
-
-            jQuery.ajax({
-                url: 'https://www.limaone.com/wp-admin/admin-ajax.php',
-                type: 'post',
-                data: {
-                    action: 'data_load_more',
-                    category: JSON.stringify(categories),
-                    currentPage: currentPage,
-                    lastPage: lastPage
-                },
-                success: function (data) {
-                    jQuery('#posts-datafetched > .posts__container').append(data);
-                    if (parseInt(currentPage) + 1 === parseInt(lastPage)) {
-                        jQuery('button#blog-loadmore').attr('display', 'none');
-                    } else {
-                        jQuery('button#blog-loadmore').attr('data-page-current', parseInt(currentPage) + 1);
-                    }
-
-                    jQuery('.posts-card').hover(function () {
-                        jQuery(this).css('opacity', 1);
-                        jQuery(this).siblings().css('opacity', 0.7);
-                        jQuery(this).addClass('hovered');
-                    },
-                        function () {
-                            jQuery('.posts-card').css('opacity', 1).removeClass('hovered');
-                        }
-                    )
-                }
-            });
-
-        }
-    </script>
-    <script type="text/javascript">
-        function fetch_filters() {
-            let uri = window.location.href.split("/");
-            if (uri[3] === "portfolio") {
-                let filters = sessionStorage.getItem('case_study_filters');
-            } else {
-                let filters = sessionStorage.getItem('blog_filters');
-            }
-
-
-            if (filters.includes(",")) {
-                filters = filters.split(",");
-            } else {
-                filters = [filters];
-            }
-
-            jQuery.ajax({
-                url: 'https://www.limaone.com/wp-admin/admin-ajax.php',
-                type: 'post',
-                data: {
-                    action: 'data_fetch_filters',
-                    filters: JSON.stringify(filters),
-                    uri: uri[3],
-                    post_id: JSON.stringify(jQuery('#left-area > article').attr('id').split("-")[1])
-                },
-                success: function (data) {
-                    jQuery('#breadcrumb').html(data);
-
-                }
-            });
-
-        }
-    </script>
-    <script type="text/javascript">
-        function fetch_case_studies() {
-            let categories = [];
-            jQuery('#posts-filter-options__categories > li').each(function (index) {
-                if (jQuery(this).hasClass('selected')) {
-                    categories.push(jQuery(this).attr('data-value'))
-                }
-            });
-
-            jQuery.ajax({
-                url: 'https://www.limaone.com/wp-admin/admin-ajax.php',
-                type: 'post',
-                data: {
-                    action: 'data_fetch_case_studies',
-                    category: JSON.stringify(categories),
-                },
-                success: function (data) {
-                    jQuery('#posts-datafetched').html(data);
-                    jQuery('.posts-card').hover(function () {
-                        jQuery(this).css('opacity', 1);
-                        jQuery(this).siblings().css('opacity', 0.7);
-                        jQuery(this).addClass('hovered');
-                    },
-                        function () {
-                            jQuery('.posts-card').css('opacity', 1).removeClass('hovered');
-                        }
-                    )
-                }
-            });
-
-        }
-    </script>
-    <script type="text/javascript">
-        function load_more_case_studies() {
-            let categories = [];
-            jQuery('#posts-filter-options__categories > li').each(function (index) {
-                if (jQuery(this).hasClass('selected')) {
-                    categories.push(jQuery(this).attr('data-value'))
-                }
-            });
-            let currentPage = jQuery('button#blog-loadmore').attr('data-page-current');
-            let lastPage = jQuery('button#blog-loadmore').attr('data-page-last');
-
-            jQuery.ajax({
-                url: 'https://www.limaone.com/wp-admin/admin-ajax.php',
-                type: 'post',
-                data: {
-                    action: 'data_load_more_case_studies',
-                    category: JSON.stringify(categories),
-                    currentPage: currentPage,
-                    lastPage: lastPage
-                },
-                success: function (data) {
-                    jQuery('#posts-datafetched > .posts__container').append(data);
-                    if (parseInt(currentPage) + 1 === parseInt(lastPage)) {
-                        jQuery('button#blog-loadmore').hide();
-                    } else {
-                        jQuery('button#blog-loadmore').attr('data-page-current', parseInt(currentPage) + 1);
-                    }
-
-                    jQuery('.posts-card').hover(function () {
-                        jQuery(this).css('opacity', 1);
-                        jQuery(this).siblings().css('opacity', 0.7);
-                        jQuery(this).addClass('hovered');
-                    },
-                        function () {
-                            jQuery('.posts-card').css('opacity', 1).removeClass('hovered');
-                        }
-                    )
-                }
-            });
-
-        }
-    </script>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe class="lazyload" data-src="https://www.googletagmanager.com/ns.html?id=GTM-T27KMCF" height="0"
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-            style="display:none;visibility:hidden" width="0"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <img alt="" height="1" src="https://insight.adsrvr.org/track/pxl/?adv=bcl0kpg&amp;ct=0:pdr0w4p&amp;fmt=3"
-        style="border-style:none;" width="1" />
     <script id="swipe-script-js"
         src="https://www.limaone.com/wp-content/plugins/dg-carousel/scripts/swiper.min.js?ver=2.0.23"
         type="text/javascript"></script>
@@ -7472,24 +7278,12 @@
         <div class="image-wrapper"><span><img src="" /></span></div>
     </div>
     <script id="" src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript"></script>
-    <script id=""
-        type="text/javascript">!function (b, e, f, g, a, c, d) { b.fbq || (a = b.fbq = function () { a.callMethod ? a.callMethod.apply(a, arguments) : a.queue.push(arguments) }, b._fbq || (b._fbq = a), a.push = a, a.loaded = !0, a.version = "2.0", a.queue = [], c = e.createElement(f), c.async = !0, c.src = g, d = e.getElementsByTagName(f)[0], d.parentNode.insertBefore(c, d)) }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js"); fbq("init", "724998961041927"); fbq("track", "PageView");</script>
-    <noscript><img height="1" src="https://www.facebook.com/tr?id=724998961041927&amp;ev=PageView&amp;noscript=1"
-            style="display:none" width="1" /></noscript>
 
     <script src="./assets/javascript/main.js"></script>
 
 
     <script id=""
         type="text/javascript">window.addEventListener("message", function (a) { "hsFormCallback" === a.data.type && "onFormSubmitted" === a.data.eventName && window.dataLayer.push({ event: "hubspot-form-success", "hs-form-guid": a.data.id }) });</script>
-    <script id=""
-        type="text/javascript">ttd_dom_ready(function () { if ("function" === typeof TTDUniversalPixelApi) { var a = new TTDUniversalPixelApi; a.init("2etwntc", ["7t6aqai"], "https://insight.adsrvr.org/track/up") } });</script>
-    <!-- <iframe height="0" id="universal_pixel_qjnlf0y"
-        src="https://insight.adsrvr.org/track/up?adv=2etwntc&amp;ref=https%3A%2F%2Fwww.limaone.com%2F&amp;upid=qjnlf0y&amp;upv=1.1.0"
-        style="display:none;" title="TTD Universal Pixel" width="0"></iframe><iframe height="0"
-        id="universal_pixel_7t6aqai"
-        src="https://insight.adsrvr.org/track/up?adv=2etwntc&amp;ref=https%3A%2F%2Fwww.limaone.com%2F&amp;upid=7t6aqai&amp;upv=1.1.0"
-        style="display:none;" title="TTD Universal Pixel" width="0"></iframe> -->
 </body>
 
 </html>
