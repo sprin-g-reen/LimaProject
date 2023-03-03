@@ -18,46 +18,39 @@ app.config["DEBUG"] = True
 def index():
     return render_template('index.html')
 
-@app.route("/logout", methods=["GET"])
-def logout():
-    session['email'] = None 
-    return redirect(url_for("index"))
 
+# @app.route('/login', methods=["GET", "POST"])
+# def login():
+#     if request.method == 'POST':
+#         print(request.form)
+#         data = request.form.to_dict()
+#         email = data.get('Email')
+#         password = data.get('Password')
+#         print(f"{email}:{password}")
+#         x = db.users.find_one({"email":email})
+#         if x and check_password_hash(x.get('password'), password):
+#             session['email'] = x.get('email')
+#             return redirect(url_for('index'))
+#         else:
+#             print("Wrong pass")
+#     return render_template('login.html')
 
-@app.route('/login', methods=["GET", "POST"])
-def login():
-    if request.method == 'POST':
-        print(request.form)
-        data = request.form.to_dict()
-        email = data.get('Email')
-        password = data.get('Password')
-        print(f"{email}:{password}")
-        x = db.users.find_one({"email":email})
-        if x and check_password_hash(x.get('password'), password):
-            session['email'] = x.get('email')
-            return redirect(url_for('index'))
-        else:
-            print("Wrong pass")
-    return render_template('login.html')
-
-@app.route('/register', methods=["GET", "POST"])
-def register():
-    if request.method == 'POST':
-        print(request.form)
-        data = request.form.to_dict()
-        name = data.get("Name")
-        email = data.get('Email')
-        password = data.get('Password')
-        print(f"{email}:{password}")
-        x = db.users.find_one({"email":email})
-        if x:
-            # alredy exists message and redirect to login
-
-            return redirect(url_for('login'))
-        
-        db.users.insert_one({"name":name, "email":email.lower(), "password":generate_password_hash(password, method='sha256')})
-        return redirect(url_for('login'))
-    return render_template('login.html') # register.html here
+# @app.route('/register', methods=["GET", "POST"])
+# def register():
+#     if request.method == 'POST':
+#         print(request.form)
+#         data = request.form.to_dict()
+#         name = data.get("Name")
+#         email = data.get('Email')
+#         password = data.get('Password')
+#         print(f"{email}:{password}")
+#         x = db.users.find_one({"email":email})
+#         if x:
+#             # alredy exists message and redirect to login
+#             return redirect(url_for('login'))
+#         db.users.insert_one({"name":name, "email":email.lower(), "password":generate_password_hash(password, method='sha256')})
+#         return redirect(url_for('login'))
+#     return render_template('login.html') # register.html here
 
 @app.route('/refer')
 def refer():
