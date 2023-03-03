@@ -21,6 +21,8 @@ def index():
 
 # @app.route('/login', methods=["GET", "POST"])
 # def login():
+
+      # redirect to the url given in requirements.
 #     if request.method == 'POST':
 #         print(request.form)
 #         data = request.form.to_dict()
@@ -35,22 +37,6 @@ def index():
 #             print("Wrong pass")
 #     return render_template('login.html')
 
-# @app.route('/register', methods=["GET", "POST"])
-# def register():
-#     if request.method == 'POST':
-#         print(request.form)
-#         data = request.form.to_dict()
-#         name = data.get("Name")
-#         email = data.get('Email')
-#         password = data.get('Password')
-#         print(f"{email}:{password}")
-#         x = db.users.find_one({"email":email})
-#         if x:
-#             # alredy exists message and redirect to login
-#             return redirect(url_for('login'))
-#         db.users.insert_one({"name":name, "email":email.lower(), "password":generate_password_hash(password, method='sha256')})
-#         return redirect(url_for('login'))
-#     return render_template('login.html') # register.html here
 
 @app.route('/refer')
 def refer():
@@ -68,13 +54,14 @@ def creditform():
     return render_template('creditform.html')
 
 
+'''
 @app.route('/orders/1')
 def order_credit_repair():
     # if session.get('logged_in'):
-        return render_template('order_credit_repair.html')
+        #return render_template('order_credit_repair.html')
     # else:
     #     return render_template('login.html')
-
+'''
 
 
 if __name__ == '__main__':
