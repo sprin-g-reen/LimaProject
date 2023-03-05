@@ -34,24 +34,30 @@ def becomeaffiliate():
 def about():
     return render_template('about.html')
 
+@app.route('/fixnflip', methods=["GET"])
+def fixnflip():
+    return redirect("https://lit-cove-35411.herokuapp.com/applications/fix-n-flip/0015w00002nt2oFAAQ")
 
-# @app.route('/login', methods=["GET", "POST"])
-# def login():
+# line of credit
+@app.route('/loc', methods=["GET"])
+def loc():
+    return redirect("https://lit-cove-35411.herokuapp.com/applications/line-of-credit/0015w00002nt2oFAAQ")
 
-      # redirect to the url given in requirements.
+# rental
+@app.route('/rental', methods=["GET"])
+def rental():
+    return redirect("https://lit-cove-35411.herokuapp.com/applications/rental/0015w00002nt2oFAAQ")
+
+
+# @app.route('/contact', methods=["GET", "POST"])
+# def contact():
 #     if request.method == 'POST':
 #         print(request.form)
 #         data = request.form.to_dict()
-#         email = data.get('Email')
-#         password = data.get('Password')
-#         print(f"{email}:{password}")
-#         x = db.users.find_one({"email":email})
-#         if x and check_password_hash(x.get('password'), password):
-#             session['email'] = x.get('email')
-#             return redirect(url_for('index'))
-#         else:
-#             print("Wrong pass")
-#     return render_template('login.html')
+#         # TODO
+#         return render_template('contact.html')
+#   
+#     return render_template('contact.html')
 
 
 @app.route('/refer')
