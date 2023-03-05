@@ -14,8 +14,13 @@ app.config["SESSION_TYPE"] = "filesystem"
 app.config["DEBUG"] = True
 
 
-@app.route('/', methods=["GET"])
+@app.route('/', methods=["GET","POST"])
 def index():
+    if request.method == 'POST': 
+        # subcribe to email 
+        data = request.form.to_dict()
+        email = data.get('email')
+        return render_template('index.html')
     return render_template('index.html')
 
 @app.route('/becomeaffiliate', methods=["GET", "POST"])
