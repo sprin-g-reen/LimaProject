@@ -71,6 +71,7 @@ def broker():
 @app.route('/creditform', methods=["GET","POST"])
 def creditform():
     if request.method == 'POST':
+        # TODO
         print(request.form)
 
     return render_template('creditform.html')
