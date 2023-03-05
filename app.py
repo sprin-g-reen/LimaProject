@@ -18,6 +18,17 @@ app.config["DEBUG"] = True
 def index():
     return render_template('index.html')
 
+@app.route('/becomeaffiliate', methods=["GET", "POST"])
+def becomeaffiliate():
+    if request.method == 'POST':
+        print(request.form)
+        data = request.form.to_dict()
+    return render_template('becomeaffiliate.html')
+
+@app.route('/about', methods=["GET"])
+def about():
+    return render_template('about.html')
+
 
 # @app.route('/login', methods=["GET", "POST"])
 # def login():
