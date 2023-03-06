@@ -68,6 +68,11 @@ def refer():
 def broker():
     return render_template('brokerP.html')
 
+# termsandconditions
+@app.route('/termsandconditions')
+def termsandconditions():
+    return render_template('termsandconditions.html')
+
 @app.route('/creditform', methods=["GET","POST"])
 def creditform():
     if request.method == 'POST':
