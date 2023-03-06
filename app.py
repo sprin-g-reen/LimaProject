@@ -81,6 +81,22 @@ def creditform():
 
     return render_template('creditform.html')
 
+@app.route('/creditform/2', methods=["GET","POST"])
+def credit_form():
+    if request.method == 'POST':
+        # TODO
+        print(request.form)
+
+    return render_template('request-credit.html')
+
+# final-preview
+@app.route('/final-preview', methods=["GET","POST"])
+def final_preview():
+    if request.method == 'POST':
+        # TODO
+        print(request.form)
+
+    return render_template('final-preview.html')
 
 '''
 @app.route('/orders/1')
