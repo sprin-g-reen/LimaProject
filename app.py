@@ -96,7 +96,7 @@ def final_preview():
         # TODO
         print(request.form)
 
-    return render_template('final-preview.html')
+    return render_template('final-preview.html') # username, phoneNumber, prixzse, price_final, price_final_tax, promos(t/f)
 
 '''
 @app.route('/orders/1')
