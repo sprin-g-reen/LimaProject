@@ -180,25 +180,40 @@
                                                 <input type="text" class="form-control shadow-none" id="cntnct"
                                             name="legal_name" name="mobnum" placeholder="AME200LTDOFF">
 
-                                            <input type="submit" id="coupanapply" value="Apply">
+                                            <input type="submit" id="coupanapply" class="commonclass" value="Apply">
 
                                             <style>
-                                                #coupanapply{
+
+                                             .commonclass {
                                                 color: white;
                                                 background: #182850;
-                                                padding: 5px 25px;
                                                 border: none;
+                                                }
+                                                
+                                                #coupanapply {
+                                                
+                                                padding: 5px 25px;
                                                 border-radius: 22px;
                                                 margin-top: 10px;
                                                 }
-                                                #coupanapply:hover{
+
+                                                #coupanapply, .fetchfiles:hover{
                                                     opacity: 0.9;
+                                                    color: white;
                                                 }
+
+                                                .fetchfiles{
+                                               
+                                                padding: 1rem 11rem;
+                                                border-radius:12px;
+                                                font-size: 1rem;
+                                                margin-left: 1rem;
+                                                }
+
                                             </style>
                                             
                                         </div>
-                                            <input type="submit" id="btnn" value="Fetch Files"
-                                            class="btn btn-primary w-100 mt-4" >
+                                           <a href="final-preview.html" class="fetchfiles commonclass"> Fetch Files </a>
                                             
                                     </form>
                                 </div>
