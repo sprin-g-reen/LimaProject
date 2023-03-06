@@ -60,23 +60,23 @@ def rental():
 #     return render_template('contact.html')
 
 
-@app.route('/refer')
+@app.route('/refer', methods=["GET"])
 def refer():
     return render_template('referalP.html')
 
-@app.route('/broker')
+@app.route('/broker', methods=["GET"])
 def broker():
     return render_template('brokerP.html')
 
-# termsandconditions
-@app.route('/termsandconditions')
+
+@app.route('/termsandconditions', methods=["GET"])
 def termsandconditions():
     return render_template('termsandconditions.html')
 
 @app.route('/creditform', methods=["GET","POST"])
 def creditform():
     if request.method == 'POST':
-        # TODO
+        # TODO.. get data, set it to session, and send to the next page to apply coupon
         print(request.form)
 
     return render_template('creditform.html')
@@ -84,7 +84,7 @@ def creditform():
 @app.route('/creditform/2', methods=["GET","POST"])
 def credit_form():
     if request.method == 'POST':
-        # TODO
+        # TODO this accet one input, then set coupon to session and redirect to final payment page
         print(request.form)
 
     return render_template('request-credit.html')
@@ -98,14 +98,6 @@ def final_preview():
 
     return render_template('final-preview.html') # username, phoneNumber, prixzse, price_final, price_final_tax, promos(t/f)
 
-'''
-@app.route('/orders/1')
-def order_credit_repair():
-    # if session.get('logged_in'):
-        #return render_template('order_credit_repair.html')
-    # else:
-    #     return render_template('login.html')
-'''
 
 
 if __name__ == '__main__':
