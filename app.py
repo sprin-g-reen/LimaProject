@@ -103,16 +103,6 @@ def credit_form():
 
     return render_template('request-credit.html')
 
-@app.route('/cc', methods=['GET'])
-def cc():
-    return render_template('cc.html')
-
-#success
-@app.route('/success', methods=["GET"])
-def success():
-
-    return render_template('success.html')
-
 # final-preview
 @app.route('/final-preview', methods=["GET","POST"])
 def final_preview():
@@ -128,10 +118,22 @@ def final_preview():
 def apply_coupon():
     if request.method == 'POST':
         # validate and return status code as output... 200 is success
+        # also add it to session if success
         return jsonify({'status': 'success'})
     
 
     return render_template('final-preview.html')
+
+
+@app.route('/cc', methods=['GET'])
+def cc():
+    return render_template('cc.html')
+
+#success
+@app.route('/success', methods=["GET"])
+def success():
+
+    return render_template('success.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -10,7 +10,6 @@
     <meta charset="utf-8">
     <title>Request Credit Repair</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <meta name="description" content="This is meta description">
     <meta name="author" content="RohithAditya">
     <link rel="shortcut icon" href="/assets/static/images/favicon.png" type="image/x-icon">
     <link rel="icon" href="/assets/static/images/logo.png" type="image/x-icon">
@@ -72,7 +71,7 @@
                     <div class="shadow rounded p-5 bg-white">
                         <div class="row">
                             <div class="col-12 mb-4">
-                                <h4>Please Upload These Documents in your secure client access portal, As It's Very Much Needed. asdf</h4>
+                                <h4>Please Upload These Documents in your <a href="/login">secure client access portal</a>, <br> As It's Very Much Important. </h4>
                             </div>
                             <div class="alert alert-danger" role="alert" id="ahaha">
                             </div>
@@ -94,9 +93,9 @@
                                                 class="form-label">Promo Code</label>
                                             
                                                 <input type="text" class="form-control shadow-none" id="coupon_code"
-                                            name="legal_name" name="mobnum" placeholder="AME200LTDOFF">
-
-                                            <input type="button" id="apply_coupon" class="commonclass" value="Apply">
+                                            name="legal_name" name="mobnum" placeholder="FIRST" required>
+                                                    <br>
+                                            <input type="button" id="apply_coupon" class="" value="Apply">
                                             
                                             
                                         </div>
@@ -132,11 +131,10 @@
         xhr.open("POST", "/apply_coupon");
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.onload = function() {
-          // If the request was successful, add the coupon code to the session
           if (xhr.status === 200) {
-        sessionStorage.setItem("coupon_code", couponCode);
-         alert("Coupon applied successfully!");
-        // Update the HTML to indicate that the coupon has been applied
+        // sessionStorage.setItem("coupon_code", couponCode);
+        // alert("Coupon applied successfully!");
+
         var couponSection = document.getElementById("coupon_section");
         couponSection.innerHTML = "Coupon <strong>" + couponCode + "</strong> has been applied.";
       } else {
@@ -147,7 +145,6 @@
       });
     </script>
 
-</body>
 <script>
     var er = document.getElementById("ahaha");
     if (er) {
@@ -157,4 +154,5 @@
     }
 </script>
 
+</body>
 </html>
