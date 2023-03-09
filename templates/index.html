@@ -4,286 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <link rel="shortcut icon" href="assets/static/images/favicon.png" type="image/x-icon">
+	<link rel="icon" href="assets/static/images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://www.limaone.com/wp-content/plugins/wpforms/assets/css/wpforms-full.min.css?ver=1.7.9.1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&#038;subset=latin,latin-ext&#038;display=swap" rel="stylesheet">
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
 
     <script id="diviarea-loader">window.DiviPopupData = window.DiviAreaConfig = { "zIndex": 1000000, "animateSpeed": 400, "triggerClassPrefix": "show-popup-", "idAttrib": "data-popup", "modalIndicatorClass": "is-modal", "blockingIndicatorClass": "is-blocking", "defaultShowCloseButton": true, "withCloseClass": "with-close", "noCloseClass": "no-close", "triggerCloseClass": "close", "singletonClass": "single", "darkModeClass": "dark", "noShadowClass": "no-shadow", "altCloseClass": "close-alt", "popupSelector": ".et_pb_section.popup", "initializeOnEvent": "et_pb_after_init_modules", "popupWrapperClass": "area-outer-wrap", "fullHeightClass": "full-height", "openPopupClass": "da-overlay-visible", "overlayClass": "da-overlay", "exitIndicatorClass": "on-exit", "hoverTriggerClass": "on-hover", "clickTriggerClass": "on-click", "onExitDelay": 2000, "notMobileClass": "not-mobile", "notTabletClass": "not-tablet", "notDesktopClass": "not-desktop", "baseContext": "body", "activePopupClass": "is-open", "closeButtonClass": "da-close", "withLoaderClass": "with-loader", "debug": false, "ajaxUrl": "https:\/\/www.limaone.com\/wp-admin\/admin-ajax.php", "sys": [] }; var divimode_loader = function () { "use strict"; !function (t) { t.DiviArea = t.DiviPopup = { loaded: !1 }; var n = t.DiviArea, i = n.Hooks = {}, o = {}; function r(t, n, i) { var r, e, c; if ("string" == typeof t) if (o[t]) { if (n) if ((r = o[t]) && i) for (c = r.length; c--;)(e = r[c]).callback === n && e.context === i && (r[c] = !1); else for (c = r.length; c--;)r[c].callback === n && (r[c] = !1) } else o[t] = [] } function e(t, n, i, r) { if ("string" == typeof t) { var e = { callback: n, priority: i, context: r }, c = o[t]; c ? (c.push(e), c = function (t) { var n, i, o, r, e = t.length; for (r = 1; r < e; r++)for (n = t[r], i = r; i > 0; i--)(o = t[i - 1]).priority > n.priority && (t[i] = o, t[i - 1] = n); return t }(c)) : c = [e], o[t] = c } } function c(t, n, i) { "string" == typeof n && (n = [n]); var r, e, c = []; for (r = 0; r < n.length; r++)Array.prototype.push.apply(c, o[n[r]]); for (e = 0; e < c.length; e++) { var a = void 0; c[e] && "function" == typeof c[e].callback && ("filter" === t ? void 0 !== (a = c[e].callback.apply(c[e].context, i)) && (i[0] = a) : c[e].callback.apply(c[e].context, i)) } if ("filter" === t) return i[0] } i.silent = function () { return i }, n.removeFilter = i.removeFilter = function (t, n) { r(t, n) }, n.removeAction = i.removeAction = function (t, n) { r(t, n) }, n.applyFilters = i.applyFilters = function (t) { for (var n = [], i = arguments.length - 1; i-- > 0;)n[i] = arguments[i + 1]; return c("filter", t, n) }, n.doAction = i.doAction = function (t) { for (var n = [], i = arguments.length - 1; i-- > 0;)n[i] = arguments[i + 1]; c("action", t, n) }, n.addFilter = i.addFilter = function (n, i, o, r) { e(n, i, parseInt(o || 10, 10), r || t) }, n.addAction = i.addAction = function (n, i, o, r) { e(n, i, parseInt(o || 10, 10), r || t) }, n.addActionOnce = i.addActionOnce = function (n, i, o, c) { e(n, i, parseInt(o || 10, 10), c || t), e(n, (function () { r(n, i) }), 1 + parseInt(o || 10, 10), c || t) } }(window); return {} }();
     </script>
-    <style id="et-divi-open-sans-inline-css">
-        /* Original: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&#038;subset=latin,latin-ext&#038;display=swap */
-        /* User Agent: Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) Safari/538.1 Daum/4.1 */
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 300;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4exQ.ttf) format('truetype');
-        }
 
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 400;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4exQ.ttf) format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 600;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4exQ.ttf) format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 700;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4exQ.ttf) format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 800;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4exQ.ttf) format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 300;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVc.ttf) format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 400;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVc.ttf) format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 600;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVc.ttf) format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 700;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVc.ttf) format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 800;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVc.ttf) format('truetype');
-        }
-
-        /* User Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0 */
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 300;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4exg.woff) format('woff');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 400;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4exg.woff) format('woff');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 600;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4exg.woff) format('woff');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 700;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4exg.woff) format('woff');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 800;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4exg.woff) format('woff');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 300;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVQ.woff) format('woff');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 400;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVQ.woff) format('woff');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 600;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVQ.woff) format('woff');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 700;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVQ.woff) format('woff');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 800;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVQ.woff) format('woff');
-        }
-
-        /* User Agent: Mozilla/5.0 (Windows NT 6.3; rv:39.0) Gecko/20100101 Firefox/39.0 */
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 300;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4ewA.woff2) format('woff2');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 400;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4ewA.woff2) format('woff2');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 600;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4ewA.woff2) format('woff2');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 700;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4ewA.woff2) format('woff2');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: italic;
-            font-weight: 800;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4ewA.woff2) format('woff2');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 300;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVI.woff2) format('woff2');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 400;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVI.woff2) format('woff2');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 600;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVI.woff2) format('woff2');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 700;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVI.woff2) format('woff2');
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 800;
-            font-stretch: normal;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVI.woff2) format('woff2');
-        }
-    </style>
     <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots" />
     <script type="text/javascript">
         let jqueryParams = [], jQuery = function (r) { return jqueryParams = [...jqueryParams, r], jQuery }, $ = function (r) { return jqueryParams = [...jqueryParams, r], $ }; window.jQuery = jQuery, window.$ = jQuery; let customHeadScripts = !1; jQuery.fn = jQuery.prototype = {}, $.fn = jQuery.prototype = {}, jQuery.noConflict = function (r) { if (window.jQuery) return jQuery = window.jQuery, $ = window.jQuery, customHeadScripts = !0, jQuery.noConflict }, jQuery.ready = function (r) { jqueryParams = [...jqueryParams, r] }, $.ready = function (r) { jqueryParams = [...jqueryParams, r] }, jQuery.load = function (r) { jqueryParams = [...jqueryParams, r] }, $.load = function (r) { jqueryParams = [...jqueryParams, r] }, jQuery.fn.ready = function (r) { jqueryParams = [...jqueryParams, r] }, $.fn.ready = function (r) { jqueryParams = [...jqueryParams, r] };</script>
@@ -5403,7 +5132,7 @@
                                                     class="wp-image-461 alignnone size-full" decoding="async"
                                                     height="15"
                                                     src="https://www.limaone.com/wp-content/uploads/Icon-ionic-md-person.png"
-                                                    width="15" /></noscript><a href="secureclient.html" rel="noopener"
+                                                    width="15" /></noscript><a href="login" rel="noopener"
                                                 target="_blank">Login</a> <img alt="contact-us-icon"
                                                 class="wp-image-460 alignnone size-full lazyloaded"
                                                 data-src="https://www.limaone.com/wp-content/uploads/Icon-awesome-clipboard-check.png"
@@ -5482,8 +5211,7 @@
 
                                                                 <li
                                                                     class="et_pb_menu_page_id-17722 menu-item menu-item-type-post_type menu-item-object-page menu-item-17905 p-8">
-                                                                    <a href="becomeaffiliate.html">request
-                                                                        credit & repair</a>
+                                                                    <a href="creditform">request credit & repair</a>
                                                                 </li>
 
                                                                 
@@ -5523,7 +5251,7 @@
 
                                                         <li
                                                             class="menu_button et_pb_menu_page_id-15010 menu-item menu-item-type-custom menu-item-object-custom menu-item-15010">
-                                                            <a href="secureclient.html">Dashboard</a>
+                                                            <a href="login">Dashboard</a>
                                                         </li>
                                                     </ul>
                                                 </nav>
@@ -5560,15 +5288,15 @@
                                                         <p>
                                                         <div class="buttonGet">
                                                             <a class="blue_button1"
-                                                                href="secureclient.html"
+                                                                href="login"
                                                                target="_blank" style="margin-top: 10px; margin-left: 20px;">Get Started
                                                             </a>
-                                                            <a class="blue_button1"
+                                                            <!-- <a class="blue_button1"
                                                                 href="/becomeaffiliate" target="_blank"
                                                                 style="margin-top: 10px; margin-left: 20px;">Become a
-                                                                Affiliate</a>
+                                                                Affiliate</a> -->
                                                             <a class="blue_button1"
-                                                                href="https://lit-cove-35411.herokuapp.com/applications/line-of-credit/0015w00002nt2oFAAQ"
+                                                                href="loc"
                                                                 target="_blank" style="margin-top: 10px; margin-left: 20px;">Real Estate
                                                                 Funding</a>
                                                         </div>
@@ -5697,7 +5425,7 @@
                                                 <div
                                                     class="et_pb_module et_pb_text et_pb_text_5 learn-more et_pb_text_align_left et_pb_bg_layout_light">
                                                     <div class="et_pb_text_inner">
-                                                        <p><a href="/becomeaffiliate" target="_blank">SIGN
+                                                        <p><a href="creditform" target="_blank">SIGN
                                                                 UP <img alt="arrow-right"
                                                                     class="wp-image-150 alignnone size-full lazyloaded"
                                                                     data-src="assets/Icon-awesome-arrow-circle-right.png"
@@ -5724,7 +5452,7 @@
                                                                                     class="wp-image-150 alignnone size-full"
                                                                                     decoding="async" height="18"
                                                                                     src="assets/Icon-awesome-arrow-circle-right.png"
-                                                                                    width="18" /></noscript></noscript></noscript></img></noscript></a>
+                                                            width="18" /></noscript></noscript></noscript></img></noscript></a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -6080,7 +5808,7 @@
                                                             over a decade. Come discover the Ameco difference today!
                                                         </h4>
                                                         <p><a class="gold_button1"
-                                                                href="creditrepairform.html" target="_blank">Get
+                                                                href="creditrepairform" target="_blank">Get
                                                                 Started</a></p>
                                                     </div>
                                                 </div>
@@ -6305,44 +6033,12 @@
 
                                         </div>
                                     </div>
-<!-- 
-                                    <div
-                                        class="et_pb_module et_pb_text et_pb_text_4_tb_footer et_pb_text_align_left et_pb_bg_layout_light">
-                                        <div class="et_pb_text_inner">
-                                            <h5>Quick Links</h5>
-                                            <p><a href="login" rel="noopener" target="_blank">Login</a></p>
-                                            <p><a href="https://www.limaone.com/post-sitemap.xml" rel="noopener"
-                                                    target="_blank">Sitemap</a></p>
-                                        </div>
-                                    </div> -->
+
                                 </div>
                             </div>
                         </div>
                         <div class="et_pb_section et_pb_section_1_tb_footer et_pb_with_background et_section_regular"
                             id="footer_bottom">
-                            <!-- <div class="et_pb_row et_pb_row_1_tb_footer">
-                                <div
-                                    class="et_pb_column et_pb_column_4_4 et_pb_column_1_tb_footer et_pb_css_mix_blend_mode_passthrough et-last-child">
-                                    <div
-                                        class="et_pb_module et_pb_text et_pb_text_5_tb_footer et_pb_text_align_left et_pb_bg_layout_light">
-                                        <div class="et_pb_text_inner">
-                                            <p><a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/1324403"
-                                                    rel="noopener" target="_blank"><span>NMLS #1324403</span></a></p>
-                                            <p>Ameco Capital, LLC / 201 E. McBee Ave. Suite 300. Greenville, SC
-                                                29601/ <a href="tel:8003904212">(800) 390-4212</a> / Ameco Capital, LLC
-                                                does not lend in Alaska, North Dakota, South Dakota, or Vermont. /
-                                                Arizona Mortgage Banker License #0949706 / Florida Mortgage Servicer
-                                                License # MLD1662 / Idaho Mortgage Broker/Lender License #
-                                                MBL-2081324403/ Minnesota Residential Mortgage Originator License #
-                                                MN-MO-1324403/ Nevada Mortgage Company License #5304/ Oregon Mortgage
-                                                Lender License # ML-5397/ Utah-DRE Mortgage Entity License # 11755492 /
-                                                Licensed as a California Finance Lender under the Department of Business
-                                                Oversight License #60DBO-45834.</p>
-                                            <p><span></span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="et_pb_row et_pb_row_2_tb_footer">
                                 <div
                                     class="et_pb_column et_pb_column_1_3 et_pb_column_2_tb_footer et_pb_css_mix_blend_mode_passthrough">
@@ -6399,18 +6095,8 @@
     <script async="" defer="" id="hs-script-loader"
         src="https://js.hs-scripts.com/21050737.js?integration=WordPress&amp;ver=10.0.19"
         type="text/javascript"></script>
-    <script id="js-divi-area-js"
-        src="https://www.limaone.com/wp-content/plugins/popups-for-divi/scripts/front.min.js?ver=3.0.5"
-        type="text/javascript"></script>
-    <script id="divi-custom-script-js-extra" type="text/javascript">
-        /* <![CDATA[ */
-        var DIVI = { "item_count": "%d Item", "items_count": "%d Items" };
-        var et_builder_utils_params = { "condition": { "diviTheme": true, "extraTheme": false }, "scrollLocations": ["app", "top"], "builderScrollLocations": { "desktop": "app", "tablet": "app", "phone": "app" }, "onloadScrollLocation": "app", "builderType": "fe" };
-        var et_frontend_scripts = { "builderCssContainerPrefix": "#et-boc", "builderCssLayoutPrefix": "#et-boc .et-l" };
-        var et_pb_custom = { "ajaxurl": "https:\/\/www.limaone.com\/wp-admin\/admin-ajax.php", "images_uri": "https:\/\/www.limaone.com\/wp-content\/themes\/Divi\/images", "builder_images_uri": "https:\/\/www.limaone.com\/wp-content\/themes\/Divi\/includes\/builder\/images", "et_frontend_nonce": "84b397ad2e", "subscription_failed": "Please, check the fields below to make sure you entered the correct information.", "et_ab_log_nonce": "1f42258f35", "fill_message": "Please, fill in the following fields:", "contact_error_message": "Please, fix the following errors:", "invalid": "Invalid email", "captcha": "Captcha", "prev": "Prev", "previous": "Previous", "next": "Next", "wrong_captcha": "You entered the wrong number in captcha.", "wrong_checkbox": "Checkbox", "ignore_waypoints": "no", "is_divi_theme_used": "1", "widget_search_selector": ".widget_search", "ab_tests": [], "is_ab_testing_active": "", "page_id": "2", "unique_test_id": "", "ab_bounce_rate": "5", "is_cache_plugin_active": "yes", "is_shortcode_tracking": "", "tinymce_uri": "https:\/\/www.limaone.com\/wp-content\/themes\/Divi\/includes\/builder\/frontend-builder\/assets\/vendors", "waypoints_options": [] };
-        var et_pb_box_shadow_elements = [];
-/* ]]> */
-    </script>
+
+
     <script id="divi-custom-script-js" src="https://www.limaone.com/wp-content/themes/Divi/js/scripts.min.js?ver=4.16.1"
         type="text/javascript"></script>
     <script id="fitvids-js"

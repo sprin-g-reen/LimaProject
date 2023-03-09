@@ -23,6 +23,12 @@ def index():
         return render_template('index.html')
     return render_template('index.html')
 
+#login 
+@app.route('/login', methods=["GET"])
+def login():
+    return redirect("https://www.secureclientaccess.com/")
+
+
 @app.route('/becomeaffiliate', methods=["GET", "POST"])
 @app.route('/becomeaffiliate.html', methods=["GET", "POST"])
 def becomeaffiliate():
@@ -96,6 +102,16 @@ def credit_form():
         print(request.form)
 
     return render_template('request-credit.html')
+
+@app.route('/cc', methods=['GET'])
+def cc():
+    return render_template('cc.html')
+
+#success
+@app.route('/success', methods=["GET"])
+def success():
+
+    return render_template('success.html')
 
 # final-preview
 @app.route('/final-preview', methods=["GET","POST"])
