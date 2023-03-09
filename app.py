@@ -123,6 +123,15 @@ def final_preview():
     return render_template('final-preview.html') # username, phoneNumber, prixzse, price_final, price_final_tax, promos(t/f)
 
 
+# apply_coupon post
+@app.route('/apply_coupon', methods=["POST"])
+def apply_coupon():
+    if request.method == 'POST':
+        # validate and return status code as output... 200 is success
+        return jsonify({'status': 'success'})
+    
+
+    return render_template('final-preview.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
