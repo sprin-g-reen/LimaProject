@@ -135,5 +135,10 @@ def success():
 
     return render_template('success.html')
 
+@app.route('/failed', methods=["GET"])
+def failed():
+
+    return render_template('failed.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
