@@ -24,6 +24,7 @@ def index():
     return render_template('index.html')
 
 @app.route('/becomeaffiliate', methods=["GET", "POST"])
+@app.route('/becomeaffiliate.html', methods=["GET", "POST"])
 def becomeaffiliate():
     if request.method == 'POST':
         print(request.form)
@@ -59,6 +60,13 @@ def rental():
 #   
 #     return render_template('contact.html')
 
+@app.route('/Login-static/<path:path>')
+def send_static_files(path):
+    return send_from_directory('Login-static', path)
+
+@app.route("/static/<path:path>")
+def static_files_static_folder(path):
+    return send_from_directory(os.path.join("Login-static", "static"), path)
 
 @app.route('/refer', methods=["GET"])
 def refer():
