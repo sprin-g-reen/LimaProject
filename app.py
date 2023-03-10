@@ -14,14 +14,18 @@ app.config["SESSION_TYPE"] = "filesystem"
 app.config["DEBUG"] = True
 
 
-@app.route('/', methods=["GET","POST"])
+@app.route('/', methods=["GET"])
 def index():
-    if request.method == 'POST': 
-        # subcribe to email 
+    return render_template('index.html')
+
+# subscribe 
+@app.route('/subscribe', methods=["POST"])
+def subscribe():
+    if request.method == 'POST':
         data = request.form.to_dict()
         email = data.get('email')
-        return render_template('index.html')
-    return render_template('index.html')
+        # save this email to database
+        return jsonify({'status': 'success'})
 
 #login 
 @app.route('/login', methods=["GET"])
@@ -56,15 +60,15 @@ def rental():
     return redirect("https://lit-cove-35411.herokuapp.com/applications/rental/0015w00002nt2oFAAQ")
 
 
-# @app.route('/contact', methods=["GET", "POST"])
-# def contact():
-#     if request.method == 'POST':
-#         print(request.form)
-#         data = request.form.to_dict()
-#         # TODO
-#         return render_template('contact.html')
-#   
-#     return render_template('contact.html')
+@app.route('/contact', methods=["GET", "POST"])
+def contact():
+    if request.method == 'POST':
+        print(request.form)
+        data = request.form.to_dict()
+        # TODO
+        return render_template('contact.html')
+  
+    return render_template('contact.html')
 
 @app.route('/Login-static/<path:path>')
 def send_static_files(path):
