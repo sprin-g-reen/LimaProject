@@ -122,7 +122,7 @@ def final_preview():
 def apply_coupon():
     if request.method == 'POST':
         # validate and return status code as output... 200 is success
-        # also add it to session if success
+        # also add it to session if success, or do in /creditform/2
         return jsonify({'status': 'success'})
     
 
