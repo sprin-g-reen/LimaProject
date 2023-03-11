@@ -1,6 +1,7 @@
 import flask, os
 from flask import *
 from db import db
+from uuid import uuid4
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__,
@@ -8,11 +9,13 @@ app = Flask(__name__,
         template_folder = os.path.abspath('templates')
 )
 
+app.secret_key = 'ssssss'
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 #app.config["UPLOAD_FOLDER"] = "uploads/"
 app.config["DEBUG"] = True
 
+db = db()
 
 @app.route('/', methods=["GET"])
 def index():
@@ -24,7 +27,7 @@ def subscribe():
     if request.method == 'POST':
         data = request.form.to_dict()
         email = data.get('email')
-        # save this email to database
+        db.users.update_one({"email":email}, {"$set":{"email":email}}, upsert=True)
         return jsonify({'status': 'success'})
 
 #login 
@@ -96,24 +99,41 @@ def termsandconditions():
 def creditform():
     if request.method == 'POST':
         # TODO.. get data, set it to session, and send to the next page to apply coupon
-        print(request.form)
-
+        session['id'] = uuid4()
+        session['data'] = request.form.to_dict()
+        # print(request.form)
+        return redirect(url_for('credit_form'))
+    session["id"] = None
+    session["data"] = None
     return render_template('creditform.html')
 
 @app.route('/creditform/2', methods=["GET","POST"])
 def credit_form():
     if request.method == 'POST':
         # this accet one input, then set coupon to session and redirect to final payment page
-        print(request.form)
+        id = session.get('id')
+        data = session.get('data')
+        if not id:
+            return redirect(url_for('creditform'))
+        for key, value in request.form.items():
+            data[key] = value
+        session['data'] = data
+        data = session.get('data')
+        return redirect(url_for('final_preview'))
 
     return render_template('request-credit.html')
 
 # final-preview
 @app.route('/final-preview', methods=["GET","POST"])
 def final_preview():
+    data = session.get('data')
     if request.method == 'POST':
-        # 
-        print(request.form)
+        if not data:
+            return redirect(url_for('creditform'))
+        
+        print(data)
+        # print(request.form)
+
 
     return render_template('final-preview.html') 
 # username, phoneNumber, prixzse, price_final, price_final_tax, promos(t/f)
@@ -123,10 +143,10 @@ def final_preview():
 @app.route('/apply_coupon', methods=["POST"])
 def apply_coupon():
     if request.method == 'POST':
-        # validate and return status code as output... 200 is success
-        # also add it to session if success, or do in /creditform/2
-        return jsonify({'status': 'success'})
-    
+        return Response(
+            '', 
+            status=200 if db.coupons.find_one({"code":request.json.get('coupon_code', "none")})  else 498
+        ) 
 
     return render_template('final-preview.html')
 
