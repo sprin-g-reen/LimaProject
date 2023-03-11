@@ -1,4 +1,5 @@
 import flask, os
+from flask_mail import Mail, Message
 from flask import *
 from db import db
 from uuid import uuid4
@@ -8,6 +9,15 @@ app = Flask(__name__,
         static_folder = os.path.abspath('assets'),
         template_folder = os.path.abspath('templates')
 )
+
+
+app.config['MAIL_SERVER'] = 'smtp-relay.sendinblue.com'
+app.config['MAIL_PORT'] = 587
+# app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = 'xxx@gmail.com'
+app.config['MAIL_PASSWORD'] = 'xxx'
+
+mail = Mail(app)
 
 app.secret_key = 'ssssss'
 app.config["SESSION_PERMANENT"] = False
@@ -66,8 +76,20 @@ def rental():
 @app.route('/contact', methods=["GET", "POST"])
 def contact():
     if request.method == 'POST':
-        print(request.form)
+        # print(request.form)
         data = request.form.to_dict()
+        name = request.form['name']
+        message = request.form['message']
+        message = f"Email : {data.get('email')} \n"
+        message += f"Name : {data.get('name')} \n"
+        message += f"Phone : {data.get('phnum')} \n"
+        message += f"Message : {data.get('message')} \n"
+        msg = Message(subject='New Contact Form Entry!',
+                sender="no_reply@contactform.com",
+                recipients=['owner@gmail.com'],
+                body=message)
+
+        mail.send(msg)
         # TODO
         return render_template('contact.html')
   
