@@ -46,6 +46,7 @@ def fixnflip():
         data = request.form.to_dict()
         # TODO
     return render_template('fixnflip.html')
+
     #return redirect("https://lit-cove-35411.herokuapp.com/applications/fix-n-flip/0015w00002nt2oFAAQ")
 
 # line of credit
