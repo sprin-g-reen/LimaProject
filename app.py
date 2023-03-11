@@ -33,21 +33,20 @@ def login():
     return redirect("https://www.secureclientaccess.com/")
 
 
-@app.route('/becomeaffiliate', methods=["GET", "POST"])
-@app.route('/becomeaffiliate.html', methods=["GET", "POST"])
-def becomeaffiliate():
-    if request.method == 'POST':
-        print(request.form)
-        data = request.form.to_dict()
-    return render_template('becomeaffiliate.html')
-
 @app.route('/about', methods=["GET"])
 def about():
     return render_template('about.html')
 
-@app.route('/fixnflip', methods=["GET"])
+
+
+@app.route('/fixnflip', methods=["GET", "POST"])
 def fixnflip():
-    return redirect("https://lit-cove-35411.herokuapp.com/applications/fix-n-flip/0015w00002nt2oFAAQ")
+    if request.method == 'POST':
+        print(request.form)
+        data = request.form.to_dict()
+        # TODO
+    return render_template('fixnflip.html')
+    #return redirect("https://lit-cove-35411.herokuapp.com/applications/fix-n-flip/0015w00002nt2oFAAQ")
 
 # line of credit
 @app.route('/loc', methods=["GET"])
@@ -78,6 +77,7 @@ def send_static_files(path):
 def static_files_static_folder(path):
     return send_from_directory(os.path.join("Login-static", "static"), path)
 
+@app.route('/becomeaffiliate', methods=["GET"])
 @app.route('/refer', methods=["GET"])
 def refer():
     return render_template('referalP.html')
@@ -102,7 +102,7 @@ def creditform():
 @app.route('/creditform/2', methods=["GET","POST"])
 def credit_form():
     if request.method == 'POST':
-        # TODO this accet one input, then set coupon to session and redirect to final payment page
+        # this accet one input, then set coupon to session and redirect to final payment page
         print(request.form)
 
     return render_template('request-credit.html')
@@ -111,10 +111,11 @@ def credit_form():
 @app.route('/final-preview', methods=["GET","POST"])
 def final_preview():
     if request.method == 'POST':
-        # TODO
+        # 
         print(request.form)
 
-    return render_template('final-preview.html') # username, phoneNumber, prixzse, price_final, price_final_tax, promos(t/f)
+    return render_template('final-preview.html') 
+# username, phoneNumber, prixzse, price_final, price_final_tax, promos(t/f)
 
 
 # apply_coupon post
