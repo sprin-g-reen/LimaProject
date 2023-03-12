@@ -1,9 +1,13 @@
-import flask, os
+import flask, os, random, string
 from flask_mail import Mail, Message
 from flask import *
 from db import db
 from uuid import uuid4
 from werkzeug.security import generate_password_hash, check_password_hash
+# from helper import charge_credit_card
+from pyxb.exceptions_ import *
+
+
 
 app = Flask(__name__,
         static_folder = os.path.abspath('assets'),
@@ -26,6 +30,8 @@ app.config["SESSION_TYPE"] = "filesystem"
 app.config["DEBUG"] = True
 
 db = db()
+
+
 
 @app.route('/', methods=["GET"])
 def index():
@@ -120,10 +126,9 @@ def termsandconditions():
 @app.route('/creditform', methods=["GET","POST"])
 def creditform():
     if request.method == 'POST':
-        # TODO.. get data, set it to session, and send to the next page to apply coupon
         session['id'] = uuid4()
         session['data'] = request.form.to_dict()
-        # print(request.form)
+        print(request.form)
         return redirect(url_for('credit_form'))
     session["id"] = None
     session["data"] = None
@@ -132,36 +137,52 @@ def creditform():
 @app.route('/creditform/2', methods=["GET","POST"])
 def credit_form():
     if request.method == 'POST':
-        # this accet one input, then set coupon to session and redirect to final payment page
         id = session.get('id')
-        data = session.get('data')
         if not id:
             return redirect(url_for('creditform'))
+        
+
+        data = session.get('data')
+        # add new data to session data 
         for key, value in request.form.items():
             data[key] = value
         session['data'] = data
-        data = session.get('data')
-        return redirect(url_for('final_preview'))
+        
 
+        return redirect(url_for('final_preview'))
     return render_template('request-credit.html')
 
 # final-preview
 @app.route('/final-preview', methods=["GET","POST"])
 def final_preview():
+
     data = session.get('data')
+    if not data:
+        return redirect(url_for('creditform'))
+    
     if request.method == 'POST':
-        if not data:
-            return redirect(url_for('creditform'))
-        
-        print(data)
-        # print(request.form)
+        return redirect(url_for('cc'))
+    
+    def calculateStateTax(price):
+        state_sales_tax = .09
+        return price * state_sales_tax
+    
+    price = 150 # this part is still undone
+    final_price = price
+    if data['couponcode'] != "none":
+        final_price -= 100
+    price_final_tax = final_price + calculateStateTax(final_price)
+    data['price_final_tax'] = price_final_tax
+    data['transc_id'] = ''.join(random.choices(
+            string.ascii_uppercase + string.digits, k=16))
+    
+    # save all to session again
+    session['data'] = data
+    return render_template('final-preview.html', name=data['fname'], phoneNumber=data['phnum'],
+                            prixzse=price,promos=final_price, price_final_tax=price_final_tax) 
 
 
-    return render_template('final-preview.html') 
-# username, phoneNumber, prixzse, price_final, price_final_tax, promos(t/f)
 
-
-# apply_coupon post
 @app.route('/apply_coupon', methods=["POST"])
 def apply_coupon():
     if request.method == 'POST':
@@ -173,14 +194,61 @@ def apply_coupon():
     return render_template('final-preview.html')
 
 
-@app.route('/cc', methods=['GET'])
+@app.route('/cc', methods=['GET','POST'])
 def cc():
+    if request.method == 'POST':
+        data = session.get('data')
+        if not data:
+            return redirect(url_for('creditform'))
+        
+        print(request.form)
+        fname = request.form.get('fname')
+        lname = request.form.get('lname')
+        ccnum = request.form.get('ccnum')
+        exp = request.form.get('exp')
+        cvv = request.form.get('cvv')
+        addyeres = request.form.get('addyeres')
+        city = request.form.get('city')
+        zip = request.form.get('zip')
+        state = request.form.get('state')
+        country = request.form.get('country')
+        def remove(string):
+            return string.replace(" ", "")
+        ccnum = remove(ccnum)
+        exp = remove(exp)
+        cvv = remove(cvv)
+
+        # jaaa = charge_credit_card(data('price_final_tax'), ccnum, exp, cvv, data['transc_id'], fname, lname, addyeres, city, state, zip, country)
+        jaaa = 0 # payment thing is crashing code
+        try:
+            if jaaa[1] == "1" or jaaa[1] == 1:
+                session["payment_done"] = True
+
+                return redirect(url_for('success'))
+            elif jaaa[0] == "2" or jaaa[0] == 2:
+                return render_template('cc.html', error=jaaa)
+            elif "this transaction has been declined" in jaaa:
+                return render_template('cc.html', error='Transaction Declined Please Try Again')
+            elif jaaa[0] == "Error Response":
+                return render_template('cc.html', error='Your Card is Declined')
+            else:
+                return render_template('cc.html', error=jaaa)
+        except IndexError:
+            return render_template('cc.html', error="Your card is declined, Transaction Failed.")
+        except TypeError:
+            return render_template('cc.html', error="Your card is declined, Transaction Failed.")
+        except ValueError:
+            return render_template('cc.html', error="Your card is declined, Transaction Failed.")
+        except pyxb.exceptions_.SimpleFacetValueError:
+            return render_template('cc.html', error="Your card/cvv/expiry date is in-correct or declined, Transaction Failed.")
+        except Exception as e:
+            return render_template('cc.html', error="Transaction Failed: " + str(e))
+        
     return render_template('cc.html')
 
 #success
 @app.route('/success', methods=["GET"])
 def success():
-
     return render_template('success.html')
 
 @app.route('/failed', methods=["GET"])
