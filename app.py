@@ -69,9 +69,12 @@ def fixnflip():
     #return redirect("https://lit-cove-35411.herokuapp.com/applications/fix-n-flip/0015w00002nt2oFAAQ")
 
 # line of credit
-@app.route('/loc', methods=["GET"])
+@app.route('/loc', methods=["GET", "POST"])
 def loc():
-    return redirect("https://lit-cove-35411.herokuapp.com/applications/line-of-credit/0015w00002nt2oFAAQ")
+    if request.method == "POST":
+        print(request.form)
+    return render_template('loc.html')
+    #return redirect("https://lit-cove-35411.herokuapp.com/applications/line-of-credit/0015w00002nt2oFAAQ")
 
 # rental
 @app.route('/rental', methods=["GET"])
